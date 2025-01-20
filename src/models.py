@@ -53,10 +53,8 @@ class Favourites(Base):
     planet_id = Column(Integer, ForeignKey("planet.id"))
     user_id = Column(Integer, ForeignKey("User.id"), nullable=False)
     user = relationship("User", back_populates="favourites")
-
-
-    def to_dict(self):
-        return {}
+    character = relationship("Character")
+    planet = relationship("Planet")
 
 ## Draw from SQLAlchemy base
 render_er(Base, 'diagram.png')
